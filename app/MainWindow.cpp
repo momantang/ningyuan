@@ -5,6 +5,11 @@ MainWindow::MainWindow(QWidget *parent):QMainWindow(parent){
     auto content=new QWidget;
     this->setCentralWidget(content);
     auto layout=new QVBoxLayout(content);
+
+    stackedWidget = new QStackedWidget;
+
+    layout->addWidget(stackedWidget);
+
     layout->addWidget(nav);
     this->setFixedSize(width,height);
 }

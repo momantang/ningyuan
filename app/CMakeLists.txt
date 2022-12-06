@@ -6,6 +6,8 @@ endif()
 if(WIN32)
 message("windows ")
 set(Qt6_DIR D:/Qt/6.4.0/msvc2019_64)
+include_directories(c:/dev/ningyuan/Util)
+
 else()
 message("linux")
 set(CMAKE_PREFIX_PATH /home/pi/qt6Host)
@@ -28,7 +30,7 @@ find_package(Qt6 REQUIRED COMPONENTS Core HttpServer Multimedia Sql Widgets)
 #find_package(pybind11 CONFIG REQUIRED)
 find_package(OpenCV CONFIG REQUIRED)
 
-add_executable(${PROJECT_NAME} main.cpp "MainWindow.h" "MainWindow.cpp" "NavigationWidget.h" "NavigationWidget.cpp" "SongWidget.h" "SongWidget.cpp")
+add_executable(${PROJECT_NAME} main.cpp "MainWindow.h" "MainWindow.cpp" "NavigationWidget.h" "NavigationWidget.cpp" "SongWidget.h" "SongWidget.cpp" "RecordWidget.h" "RecordWidget.cpp")
 
 #target_link_libraries(${PROJECT_NAME} PRIVATE libevent::core libevent::extra)#链接第三方库
 target_link_libraries(
