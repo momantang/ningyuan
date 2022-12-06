@@ -27,12 +27,16 @@ find_package(Qt6 REQUIRED COMPONENTS Core HttpServer Multimedia Sql)
 #find_package(pybind11 CONFIG REQUIRED)
 find_package(OpenCV CONFIG REQUIRED)
 #find_package(unofficial-sqlite3 CONFIG REQUIRED)
+if(WIN32)
 find_package(unofficial-sqlite3 CONFIG REQUIRED)
+else()
+endif()
 add_executable(${PROJECT_NAME} main.cpp  "WebServer.h" "WebServer.cpp" "SongManager.h" "SongManager.cpp" "Player.h" "Player.cpp" "SqlManager.h" "SqlManager.cpp")
 
 #target_link_libraries(${PROJECT_NAME} PRIVATE libevent::core libevent::extra)#链接第三方库
 
 
+if(WIN32)
 target_link_libraries(
 	${PROJECT_NAME}
 	Util
@@ -41,5 +45,14 @@ target_link_libraries(
 	Qt6::HttpServer
 	Qt6::Multimedia
 	Qt6::Sql)
+else()
+target_link_libraries(
+	${PROJECT_NAME}
+	Util
+	Qt6::Core
+	Qt6::HttpServer
+	Qt6::Multimedia
+	Qt6::Sql)
+endif()
 
 target_include_directories(${PROJECT_NAME} PUBLIC C:/dev/ningyuan/util)

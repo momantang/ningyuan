@@ -23,12 +23,12 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Core HttpServer Multimedia Sql)
+find_package(Qt6 REQUIRED COMPONENTS Core HttpServer Multimedia Sql Widgets)
 
 #find_package(pybind11 CONFIG REQUIRED)
 find_package(OpenCV CONFIG REQUIRED)
 
-add_executable(${PROJECT_NAME} main.cpp "MainWindow.h" "MainWindow.cpp")
+add_executable(${PROJECT_NAME} main.cpp "MainWindow.h" "MainWindow.cpp" "NavigationWidget.h" "NavigationWidget.cpp" "SongWidget.h" "SongWidget.cpp")
 
 #target_link_libraries(${PROJECT_NAME} PRIVATE libevent::core libevent::extra)#链接第三方库
 target_link_libraries(
@@ -39,4 +39,5 @@ target_link_libraries(
 	Qt6::HttpServer
 	Qt6::Multimedia
 	Qt6::Sql
+	Qt6::Widgets
 )
