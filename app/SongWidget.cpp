@@ -4,7 +4,8 @@ SongWidget::SongWidget(QWidget* parent):QWidget(parent)
 {
 	auto layout = new QVBoxLayout(this);
 
-	statusLabel=new QLabel(tr(""))
+	statusLabel = new QLabel(tr("Status"));
+	layout->addWidget(statusLabel);
 }
 
 SongWidget::~SongWidget()
